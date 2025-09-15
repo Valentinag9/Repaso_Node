@@ -17,6 +17,12 @@ npm run dev
 npm run build
 npm install
 ```
+public async login(email:string ): Promise<void>{
+        const userExist = await UserModel.findOne({email});
+        if(userExist=== null){
+            throw new ReferenceError("Not Authorized")
+        }
+    }
 
 ---
 
@@ -169,3 +175,4 @@ backend-proyecto/
 - Los comandos `npm run dev`, `npm run build` y `npm install` son estándar para proyectos Node.js
 - La estructura del backend es escalable y sigue buenas prácticas de organización de código
 - Utiliza `nodemon` en desarrollo para recargas automáticas del servidor
+
