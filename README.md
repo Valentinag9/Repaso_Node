@@ -80,3 +80,64 @@ npm run dev
 👉 Verás en consola:
 
 Hola desde TypeScript 🚀
+
+
+1. Crear el proyecto base
+mkdir backend-proyecto
+cd backend-proyecto
+npm init -y
+
+
+Instalar dependencias principales:
+
+npm install express mongoose jsonwebtoken bcrypt
+
+
+Dependencias de desarrollo:
+
+npm install --save-dev typescript ts-node @types/node @types/express @types/jsonwebtoken @types/bcrypt nodemon
+
+
+Inicializar TypeScript:
+
+npx tsc --init
+
+
+Configura tsconfig.json con algo así:
+
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
+
+
+Estructura inicial del proyecto:
+
+backend-proyecto/
+│── src/
+│   ├── index.ts
+│   ├── config/
+│   │   └── db.ts
+│   ├── models/
+│   │   ├── User.ts
+│   │   ├── Project.ts
+│   │   └── Task.ts
+│   ├── routes/
+│   │   ├── user.routes.ts
+│   │   ├── project.routes.ts
+│   │   └── task.routes.ts
+│   ├── controllers/
+│   │   ├── user.controller.ts
+│   │   ├── project.controller.ts
+│   │   └── task.controller.ts
+│   ├── middleware/
+│   │   ├── auth.ts
+│   │   └── roles.ts
+│   └── utils/
+│       └── generateJWT.ts
