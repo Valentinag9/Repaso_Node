@@ -1,48 +1,58 @@
-Comandos Docker 
-https://docukelo-icesi.onrender.com/docs/computacion-3/semana-1/docker-commands
+# Docker y Node.js con TypeScript - Guía de Setup
 
+## 📋 Comandos Docker Básicos
 
+Para más información detallada, consulta: [Comandos Docker - Docukelo ICESI](https://docukelo-icesi.onrender.com/docs/computacion-3/semana-1/docker-commands)
+
+### Comandos Principales
+```bash
+# Iniciar contenedores en segundo plano
 docker compose up -d
 
+# Iniciar el servicio Docker (Linux)
 sudo systemctl start docker
 
-
+# Comandos de desarrollo
 npm run dev
-
 npm run build
-
 npm install
+```
 
+---
 
-🔹 1. Crear la carpeta del proyecto
+## 🚀 Setup Inicial de Proyecto TypeScript
+
+### 🔹 1. Crear la carpeta del proyecto
+```bash
 mkdir mi-proyecto-ts
 cd mi-proyecto-ts
+```
 
-🔹 2. Inicializar Node.js
+### 🔹 2. Inicializar Node.js
+```bash
 npm init -y
+```
+👉 Esto crea el archivo `package.json` con la configuración básica.
 
-
-👉 Esto crea el archivo package.json con la configuración básica.
-
-🔹 3. Instalar TypeScript y herramientas necesarias
+### 🔹 3. Instalar TypeScript y herramientas necesarias
+```bash
 npm install --save-dev typescript ts-node @types/node nodemon
+```
 
+**Dependencias instaladas:**
+- `typescript` → compilador de TS
+- `ts-node` → permite ejecutar .ts directamente sin compilar
+- `@types/node` → tipos de Node.js para TypeScript
+- `nodemon` → reinicia automáticamente la app al detectar cambios
 
-typescript → compilador de TS.
-
-ts-node → permite ejecutar .ts directamente sin compilar.
-
-@types/node → tipos de Node.js para TypeScript.
-
-nodemon → reinicia automáticamente la app al detectar cambios.
-
-🔹 4. Inicializar TypeScript
+### 🔹 4. Inicializar TypeScript
+```bash
 npx tsc --init
+```
+👉 Esto crea un archivo `tsconfig.json`.
 
-
-👉 Esto crea un archivo tsconfig.json.
 Dentro de él, asegúrate de tener algo parecido a:
-
+```json
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -53,58 +63,66 @@ Dentro de él, asegúrate de tener algo parecido a:
     "esModuleInterop": true
   }
 }
+```
 
-🔹 5. Crear estructura del proyecto
+### 🔹 5. Crear estructura del proyecto
+```bash
 mkdir src
 touch src/index.ts
+```
 
-
-En src/index.ts escribe algo básico:
-
+En `src/index.ts` escribe algo básico:
+```typescript
 console.log("Hola desde TypeScript 🚀");
+```
 
-🔹 6. Scripts en package.json
-
-Agrega estos scripts en el package.json:
-
+### 🔹 6. Scripts en package.json
+Agrega estos scripts en el `package.json`:
+```json
 "scripts": {
   "dev": "nodemon --watch src --exec ts-node src/index.ts",
   "build": "tsc",
   "start": "node dist/index.js"
 }
+```
 
-🔹 7. Ejecutar en desarrollo
+### 🔹 7. Ejecutar en desarrollo
+```bash
 npm run dev
-
-
+```
 👉 Verás en consola:
-
+```
 Hola desde TypeScript 🚀
+```
 
+---
 
-1. Crear el proyecto base
+## 🏗️ Setup Backend con Express y MongoDB
+
+### 1. Crear el proyecto base
+```bash
 mkdir backend-proyecto
 cd backend-proyecto
 npm init -y
+```
 
-
-Instalar dependencias principales:
-
+### 2. Instalar dependencias principales
+```bash
 npm install express mongoose jsonwebtoken bcrypt
+```
 
-
-Dependencias de desarrollo:
-
+### 3. Dependencias de desarrollo
+```bash
 npm install --save-dev typescript ts-node @types/node @types/express @types/jsonwebtoken @types/bcrypt nodemon
+```
 
-
-Inicializar TypeScript:
-
+### 4. Inicializar TypeScript
+```bash
 npx tsc --init
+```
 
-
-Configura tsconfig.json con algo así:
-
+Configura `tsconfig.json` con:
+```json
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -115,10 +133,10 @@ Configura tsconfig.json con algo así:
     "esModuleInterop": true
   }
 }
+```
 
-
-Estructura inicial del proyecto:
-
+### 5. Estructura inicial del proyecto
+```
 backend-proyecto/
 │── src/
 │   ├── index.ts
@@ -141,3 +159,13 @@ backend-proyecto/
 │   │   └── roles.ts
 │   └── utils/
 │       └── generateJWT.ts
+```
+
+---
+
+## 📝 Notas Importantes
+
+- Asegúrate de tener Docker instalado y ejecutándose antes de usar los comandos de Docker
+- Los comandos `npm run dev`, `npm run build` y `npm install` son estándar para proyectos Node.js
+- La estructura del backend es escalable y sigue buenas prácticas de organización de código
+- Utiliza `nodemon` en desarrollo para recargas automáticas del servidor
