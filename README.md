@@ -6,3 +6,9 @@ docker compose up -d
 
 sudo systemctl start docker
 
+
+npm run dev
+
+npm run build
+
+npm install
